@@ -8,7 +8,7 @@ import os
 # the slice [1:-1] gets rid of the quotes around the pasted file path, as the input method
 # will add another pair of quotes around what is inputted, making ZipFile unable to read the path
 address = input("property address?")
-filePath = input("Enter the file path: ")[1:-1]
+filePath = input("Enter the file path (with quotes): ")[1:-1]
 
 os.mkdir("./{}".format(address))
 
