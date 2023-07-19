@@ -6,6 +6,8 @@ from monthDictionary import monthDictionary
 import os
 import sys
 
+config = {"default":"./tempFolderName"}
+
 # returns a full address from the array of addresses in addressArray.py (array) that has a
 # street number that matches the passed number. If there are multiple addresses in array
 # that start with the same street number, the user is prompted to select the address that
@@ -119,17 +121,18 @@ def renameFolder():
     newFolderName = returnFolderName()
     os.rename("./tempFolderName", newFolderName)
 
-def checkFileTypes():
+def checkFileTypes(checkFile = config["default"]):
     badFiles = []
     badFileTypes = []
 
-    for file in os.listdir("./tempFolderName"):
+    # iterates through array of file names checking if they are jpg files
+    for file in os.listdir(checkFile):
         # isolate the file extension, as the split after the last period should be it
         if file.split(".")[-1] != "jpg":
             badFiles.append(file)
             badFileTypes.append(file.split(".")[-1])
     
-    if len(badFiles) == len(os.listdir("./tempFolderName")):
+    if len(badFiles) == len(os.listdir(checkFile)):
         sys.exit("There are only files of the type {} in the folder, cancelling".format(badFileTypes))
 
     if len(badFiles) > 0:
