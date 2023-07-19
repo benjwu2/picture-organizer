@@ -113,6 +113,9 @@ def extractFiles(extractFile):
     word = "are" if numFiles > 1 else "is"
     plural = "s" if word == "are" else ""
 
+    if numFiles == 0:
+        sys.exit("Empty folder, canceling")
+
     print("\n[FOLDER INFORMATION]")
     print("There {} {} file{} in the folder: {}".format(word, numFiles, plural, fileList))
     checkFileTypes()
