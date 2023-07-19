@@ -3,10 +3,11 @@ from addressArray import array
 from PIL import Image
 from PIL.ExifTags import TAGS
 from monthDictionary import monthDictionary
+from configDictionary import config
 import os
 import sys
 
-config = {"defaultDest":"./tempFolderName"}
+
 
 # returns a full address from the array of addresses in addressArray.py (array) that has a
 # street number that matches the passed number. If there are multiple addresses in array
