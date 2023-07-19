@@ -68,7 +68,9 @@ def extractDateTime(filepath):
     # checks if there is a DateTimeKey metadata value
     if not(306 in img.getexif()):
         sys.exit("no metadata, rename folder manually")
-    print("\nRaw date: " + img.getexif()[306])
+
+    print("\n[EXTRACTED DATE]")
+    print("Raw date: " + img.getexif()[306])
     rawDate = img.getexif()[306]
 
     # "rawDate.split(":")[1]" outputs the month part of the raw date (e.g. the 07 from 2023:07:13 14:37:25)
@@ -90,7 +92,9 @@ def getFirstImagePath():
     fileList = os.listdir("./tempFolderName")
 
     filename = fileList[0]
-    print("\nfirst file in folder: " + fileList[0])
+
+    print("\n[FILEPATH FOR IMAGE USED TO EXTRACT DATE]")
+    print("first file in folder: " + fileList[0])
 
     print("Filepath returned: ./tempFolderName/{}".format(filename))
     return "./tempFolderName/{}".format(filename)
@@ -108,7 +112,8 @@ def extractFiles(extractFile):
     word = "are" if numFiles > 1 else "is"
     plural = "s" if word == "are" else ""
 
-    print("\nThere {} {} file{} in the folder: {}".format(word, numFiles, plural, fileList))
+    print("\n[FOLDER INFORMATION]")
+    print("There {} {} file{} in the folder: {}".format(word, numFiles, plural, fileList))
     checkFileTypes()
 
     
