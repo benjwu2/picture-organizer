@@ -1,9 +1,11 @@
+from configDictionary import config
 from zipfile import ZipFile
-from addressArray import array
+import importlib
+array = importlib.import_module(config["arrayModuleName"]).array
 from PIL import Image
 from PIL.ExifTags import TAGS
 from monthDictionary import monthDictionary
-from configDictionary import config
+
 import os
 import sys
 
