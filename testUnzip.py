@@ -105,6 +105,8 @@ def extractFiles(extractFile):
     plural = "s" if word == "are" else ""
 
     print("\nThere {} {} file{} in the folder: {}".format(word, numFiles, plural, fileList))
+    checkFileTypes()
+
     
 # based on address and image metadata, assembles a suitable name for the
 # folder of extracted images
@@ -112,7 +114,6 @@ def extractFiles(extractFile):
 # the address is selected by the user inputting the street number of the desired address
 def returnFolderName():
     extractFiles(input("\n\n\ninput image zip folder file path: ")[1:-1])
-    checkFileTypes()
 
     streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
     date = extractDateTime(getFirstImagePath())
