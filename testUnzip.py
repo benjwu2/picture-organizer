@@ -65,6 +65,7 @@ def returnFullAddress(streetNumber):
 def extractDateTime(filepath):
     img = Image.open(filepath)
 
+    # checks if there is a DateTimeKey metadata value
     if not(306 in img.getexif()):
         sys.exit("no metadata, rename folder manually")
     print("\nRaw date: " + img.getexif()[306])
