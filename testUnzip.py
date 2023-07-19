@@ -104,7 +104,8 @@ def extractFiles(extractFile):
 # the address is selected by the user inputting the street number of the desired address
 def returnFolderName():
     extractFiles(input("\n\n\ninput image zip folder file path: ")[1:-1])
-    
+    checkFileTypes()
+
     streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
     date = extractDateTime(getFirstImagePath())
 
@@ -154,9 +155,8 @@ def checkFileTypes(checkFile = config["defaultDest"]):
     else:
         print("All files are jpgs as expected :)")
 
-# renameFolder()
+renameFolder()
 
-checkFileTypes(r"C:\Users\benjw\Downloads\Photos-001 (2)")
 
 # getImageInfo(r"C:\Users\benjw\Downloads\Photos-001 (1).zip")
 
