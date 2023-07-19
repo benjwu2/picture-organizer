@@ -176,6 +176,18 @@ def checkFileTypes(checkFile = config["defaultDest"]):
         numberFiles = len(badFiles)
         pluralFiles = "" if len(badFiles) == 1 else "s"
         print("WARNING - There {} {} file type{} in the folder besides jpg:\n File types: {}\nThere {} {} file{} with bad file types: {}".format(wordFileTypes, numberFileTypes, pluralFileTypes, badFileTypes, wordFiles, numberFiles, pluralFiles, badFiles))
+        
+        # option to quit program if there are bad file types
+        userInput = input("\nContinue? Enter Y or N: ")
+        while(userInput != "Y" and userInput != "N"):
+            userInput = input("\nBad input, enter Y or N: ")
+            if (userInput == "N"):
+                sys.exit("Canceled by user")
+            elif (userInput == "Y"):
+                break
+            else:
+                continue
+
     else:
         print("All files are jpgs as expected :)")
 
