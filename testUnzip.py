@@ -119,7 +119,20 @@ def renameFolder():
     newFolderName = returnFolderName()
     os.rename("./tempFolderName", newFolderName)
 
+def checkFileTypes():
+    badFiles = []
+    badFileTypes = []
 
+    for file in os.listdir():
+        # isolate the file extension, as the split after the last period should be it
+        if file.split(".")[-1] != "jpg":
+            badFiles.append(file)
+            badFileTypes.append(file.split(".")[-1])
+    
+    if len(badFiles) == len(os.listdir()):
+        sys.exit("There are only files of the type {} in the folder, cancelling".format(badFileTypes))
+
+    print("WARNING - There are file types in the folder besides jpgs:\n File types: {}\nFiles with bad file types: {}".format(badFileTypes, badFiles))
 
 renameFolder()
 
