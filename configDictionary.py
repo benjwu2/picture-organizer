@@ -1,1 +1,1 @@
-config = {"defaultDest": "./tempFolderName"}
+config = {"defaultDest": "./tempFolderName", "arrayModuleName": "addressArray"}
