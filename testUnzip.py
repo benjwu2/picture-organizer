@@ -121,6 +121,9 @@ def renameFolder():
     newFolderName = returnFolderName()
     os.rename("./tempFolderName", newFolderName)
 
+# accepts a folder and checks the files for whether they are jpgs or not
+# lists non-jpg file types and files if there are any
+# If all files are non-jpg files, then the program exits
 def checkFileTypes(checkFile = config["default"]):
     badFiles = []
     badFileTypes = []
@@ -132,6 +135,8 @@ def checkFileTypes(checkFile = config["default"]):
             badFiles.append(file)
             badFileTypes.append(file.split(".")[-1])
     
+
+    # Response based on number of bad files
     if len(badFiles) == len(os.listdir(checkFile)):
         sys.exit("There are only files of the type {} in the folder, cancelling".format(badFileTypes))
 
