@@ -132,7 +132,10 @@ def checkFileTypes():
     if len(badFiles) == len(os.listdir("./tempFolderName")):
         sys.exit("There are only files of the type {} in the folder, cancelling".format(badFileTypes))
 
-    print("WARNING - There are file types in the folder besides jpgs:\n File types: {}\nFiles with bad file types: {}".format(badFileTypes, badFiles))
+    if len(badFiles) > 0:
+        print("WARNING - There are file types in the folder besides jpgs:\n File types: {}\nFiles with bad file types: {}".format(badFileTypes, badFiles))
+    else:
+        print("All files are jpgs as expected :)")
 
 renameFolder()
 
