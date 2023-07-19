@@ -1,6 +1,7 @@
 from zipfile import ZipFile
 from addressArray import array
 from PIL import Image
+from PIL.ExifTags import TAGS
 import os
 import sys
 
@@ -47,8 +48,15 @@ def returnFullAddress(streetNumber):
 
         return(matches[selector-1])
             
+def returnDateTime(imagePath):
+    img = Image.open(imagePath)
+    print(img.getexif()[306])
+    rawDate = img.getexif()[306]
 
 
+imageAddress = input("input image file path: ")[1:-1]
+print(imageAddress)
+returnDateTime(imageAddress)
 # right click the zip file to be unzipped and select "Copy as path"
 # this is what is to be pasted into command prompt when prompted
 
