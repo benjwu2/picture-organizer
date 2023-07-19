@@ -36,6 +36,7 @@ def returnFullAddress(streetNumber):
     
     # if there is only one match, return it
     elif len(matches) < 2:
+        print("Corresponding full address: {}".format(matches[0]))
         return matches[0]
     else:
         print("\nThere are multiple addresses with this street number: {}".format(matches))
@@ -94,9 +95,9 @@ def getFirstImagePath():
     filename = fileList[0]
 
     print("\n[FILEPATH FOR IMAGE USED TO EXTRACT DATE]")
-    print("first file in folder: " + fileList[0])
+    print("Image file: " + fileList[0])
 
-    print("Filepath returned: ./tempFolderName/{}".format(filename))
+    print("Image filepath: ./tempFolderName/{}".format(filename))
     return "./tempFolderName/{}".format(filename)
 
 # extracts the files from "extractFile" into a newly made folder
@@ -127,7 +128,8 @@ def returnFolderName():
     streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
     date = extractDateTime(getFirstImagePath())
 
-    print("\nStreet address used: "+ streetAddress)
+    print("\n\n\n[FOLDER NAME]")
+    print("Street address used: "+ streetAddress)
     print("Date: " + date)
     
     folderName = "{} - {}".format(streetAddress, date)
