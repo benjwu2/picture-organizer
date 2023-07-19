@@ -123,13 +123,13 @@ def checkFileTypes():
     badFiles = []
     badFileTypes = []
 
-    for file in os.listdir():
+    for file in os.listdir("./tempFolderName"):
         # isolate the file extension, as the split after the last period should be it
         if file.split(".")[-1] != "jpg":
             badFiles.append(file)
             badFileTypes.append(file.split(".")[-1])
     
-    if len(badFiles) == len(os.listdir()):
+    if len(badFiles) == len(os.listdir("./tempFolderName")):
         sys.exit("There are only files of the type {} in the folder, cancelling".format(badFileTypes))
 
     print("WARNING - There are file types in the folder besides jpgs:\n File types: {}\nFiles with bad file types: {}".format(badFileTypes, badFiles))
