@@ -9,20 +9,27 @@ for tag, value in img.getexif().items():
     if tag in TAGS:
         metadata[TAGS[tag]] = value
 
-print(img.getexif())
 
 # TAGS is a dictionary of image metadata tags and their numerical ids, with the 
 # ids being the key and the tags being the value of the dictionary
 
 # the full list of tags and their respective number ids
-print(TAGS)
+def printFullTagKeyList():
+    print(TAGS)
 
 # img.exif() is a dictionary of metadata number ids and the value of the associated metadata tag
 # e.g. Modelkey: Pixel 4a
+# Note that this may not include all the tags seen in TAGS
 
-for key in img.getexif():
-    print('tag: {}\n'.format(TAGS[key] + "key: {}".format(key)))
+def printImageTagKeyList():
+    for key in img.getexif():
+        print('tag: {}\n'.format(TAGS[key] + "key: {}".format(key)))
 
-# prints the tag followed by the value of the image
-for key in img.getexif():
-    print('tag: {}\n'.format(TAGS[key] + "key: {}".format(img.getexif()[key])))
+# img.getexif() creates a dictionary of tag ids and the corresponding metadata values for the given image
+def printImageKeyValueList():
+    print(img.getexif())
+
+# prints the tag followed by the value of the image's metadata
+def printImageTagValueList():
+    for key in img.getexif():
+        print('tag: {}\n'.format(TAGS[key] + "key: {}".format(img.getexif()[key])))
