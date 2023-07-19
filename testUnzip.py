@@ -55,6 +55,9 @@ def returnFullAddress(streetNumber):
             else:
                 print("\nEnter a valid number (enter \"cancel\" to exit)")
 
+        address = matches[selector-1]
+
+        print("\nYou selected {}".format(address))
         return(matches[selector-1])
 
 
