@@ -36,7 +36,6 @@ def returnFullAddress(streetNumber):
         # selector is the *valid* option picked by the user. userInput is the possibly invalid option picked.
         # if userInput passes the check, it is set as the value of selector
         while selector == None:
-            listLength = len(str(matches))
             userInput = int(input("Select one of the matches by entering the corresponding number \"1\" for the first option, \"2\" for the second, etc: "))
             if (userInput) == "cancel":
                 sys.exit("Canceled by user")
