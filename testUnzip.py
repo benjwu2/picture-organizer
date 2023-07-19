@@ -6,22 +6,21 @@ import sys
 
 def returnFullAddress(streetNumber):
     if streetNumber == "cancel":
-        sys.exit("Canceled by user")
+        sys.exit("\nCanceled by user")
     matches = []
 
     for address in array:
         if address.split(" ")[0] == streetNumber:
             matches.append(address)
     if len(matches) == 0:
-        print("There are no addresses with this street number")
+        print("\nThere are no addresses with this street number")
         retry = input("Enter the street number (enter \"cancel\" to exit): ")
 
         return returnFullAddress(retry)
     elif len(matches) < 2:
-        print(matches[0])
         return matches[0]
     else:
-        print("There are multiple addresses with this street number: {}".format(matches))
+        print("\nThere are multiple addresses with this street number: {}".format(matches))
         selector = None
 
         while selector == None:
@@ -32,9 +31,9 @@ def returnFullAddress(streetNumber):
             elif (userInput > 0 and userInput <= len(matches)):
                 selector = userInput
             else:
-                print("Enter a valid number (enter \"cancel\" to exit)")
+                print("\nEnter a valid number (enter \"cancel\" to exit)")
 
-        print(matches[selector-1])
+        return(matches[selector-1])
             
 
 
@@ -44,7 +43,7 @@ def returnFullAddress(streetNumber):
 # the slice [1:-1] gets rid of the quotes around the pasted file path, as the input method
 # will add another pair of quotes around what is inputted, making ZipFile unable to read the path
 
-fullAddress = returnFullAddress(input("Enter the street number: "))
+fullAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
 
 # filePath = input("Enter the file path (with quotes): ")[1:-1]
 
