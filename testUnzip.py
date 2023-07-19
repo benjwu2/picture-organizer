@@ -133,7 +133,8 @@ def checkFileTypes(checkFile = config["default"]):
         # isolate the file extension, as the split after the last period should be it
         if file.split(".")[-1] != "jpg":
             badFiles.append(file)
-            badFileTypes.append(file.split(".")[-1])
+            if not file.split(".")[-1] in badFileTypes:
+                badFileTypes.append(file.split(".")[-1])
     
 
     # Response based on number of bad files
@@ -145,8 +146,9 @@ def checkFileTypes(checkFile = config["default"]):
     else:
         print("All files are jpgs as expected :)")
 
-renameFolder()
+# renameFolder()
 
+checkFileTypes(r"C:\Users\benjw\Downloads\Photos-001 (2)")
 
 # getImageInfo(r"C:\Users\benjw\Downloads\Photos-001 (1).zip")
 
