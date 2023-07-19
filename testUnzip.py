@@ -91,7 +91,7 @@ def getFirstImagePath():
 # makes a folder that the files in the zip folder corresponding to "filepath"
 # are extracted to
 # NB: this method must be called before getFirstImagePath in the code, as it creates
-# the folder whose path is used in getFirstImagePath
+# the folder in the working directory whose path is used in getFirstImagePath
 def extractFiles(filepath):
     os.mkdir("./tempFolderName")
     with ZipFile(filepath) as zObject:
