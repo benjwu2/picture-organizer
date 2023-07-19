@@ -124,6 +124,7 @@ def renameFolder():
 # accepts a folder and checks the files for whether they are jpgs or not
 # lists non-jpg file types and files if there are any
 # If all files are non-jpg files, then the program exits
+# NOTES - checkFileTypes only works on unzipped files
 def checkFileTypes(checkFile = config["default"]):
     badFiles = []
     badFileTypes = []
@@ -142,7 +143,15 @@ def checkFileTypes(checkFile = config["default"]):
         sys.exit("There are only files of the type {} in the folder, cancelling".format(badFileTypes))
 
     if len(badFiles) > 0:
-        print("WARNING - There are file types in the folder besides jpgs:\n File types: {}\nFiles with bad file types: {}".format(badFileTypes, badFiles))
+        # making error message grammatically correct based on the number of bad files and file types
+        wordFileTypes = "is" if len(badFileTypes) == 1 else "are"
+        numberFileTypes = len(badFileTypes)
+        pluralFileTypes = "" if len(badFileTypes) == 1 else "s"
+
+        wordFiles = "is" if len(badFiles) == 1 else "are"
+        numberFiles = len(badFiles)
+        pluralFiles = "" if len(badFiles) == 1 else "s"
+        print("WARNING - There {} {} file type{} in the folder besides jpg:\n File types: {}\nThere {} {} file{} with bad file types: {}".format(wordFileTypes, numberFileTypes, pluralFileTypes, badFileTypes, wordFiles, numberFiles, pluralFiles, badFiles))
     else:
         print("All files are jpgs as expected :)")
 
