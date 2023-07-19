@@ -1,5 +1,6 @@
 from zipfile import ZipFile
 from addressArray import array
+from PIL import Image
 import os
 import sys
 
