@@ -19,9 +19,12 @@ def returnFullAddress(streetNumber):
 
     # iterates through the array looking for addresses that have a street number that matches the input
     for address in array:
-        # address.split(" "[0]) isolates the street number from the current address
+        # address.split(" "[0]) isolates the street number from the current address "selected"
+        # in the array of addresses
         if address.split(" ")[0] == streetNumber:
             matches.append(address)
+    
+    # number of matches logic
     if len(matches) == 0:
         print("\nThere are no addresses with this street number")
         retry = input("Enter the street number (enter \"cancel\" to exit): ")
@@ -35,6 +38,9 @@ def returnFullAddress(streetNumber):
     else:
         print("\nThere are multiple addresses with this street number: {}".format(matches))
         selector = None
+
+        # making sure the number inputted by the user corresponds to one of the matching addresses i.e. 1 for the first match
+        # 2 for the second, etc.
 
         # selector is the *valid* option picked by the user. userInput is the possibly invalid option picked.
         # if userInput passes the check, it is set as the value of selector
@@ -64,20 +70,20 @@ def returnDateTime(imagePath):
 
     processedDate = "{} {}, {}".format(Month, Day, Year)
 
-    print(processedDate)
     return processedDate
 
 
-imageAddress = input("input image file path: ")[1:-1]
-print(imageAddress)
-returnDateTime(imageAddress)
 # right click the zip file to be unzipped and select "Copy as path"
 # this is what is to be pasted into command prompt when prompted
 
 # the slice [1:-1] gets rid of the quotes around the pasted file path, as the input method
 # will add another pair of quotes around what is inputted, making ZipFile unable to read the path
+streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
+date = returnDateTime(input("input image file path: ")[1:-1])
 
-fullAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
+print(streetAddress)
+print(date)
+
 
 # filePath = input("Enter the file path (with quotes): ")[1:-1]
 
