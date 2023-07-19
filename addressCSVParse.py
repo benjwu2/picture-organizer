@@ -3,6 +3,7 @@ fileAddress = input("enter the file path for the CSV file to be parsed (with quo
 # Takes the CSV file whose file path is inputted and converts
 # it into an array written out in a newly created Python file
 with open("addressArray.py", 'w') as AA:
+    AA.write("array = ")
     with open(fileAddress) as file:
 
         # convert the file contents into a string
