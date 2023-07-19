@@ -83,9 +83,10 @@ def extractDateTime(filepath):
 # returns the file path for the first image in the folder whose file path
 # is passed as an argument
 def getFirstImagePath():
-    print("\nFiles in folder: {}".format(os.listdir("./tempFolderName")))
-    filename = os.listdir("./tempFolderName")[0]
-    print("File selected: " + os.listdir("./tempFolderName")[0])
+    fileList = os.listdir("./tempFolderName")
+
+    filename = fileList[0]
+    print("File selected: " + fileList[0])
 
     print("Filepath returned: ./tempFolderName/{}".format(filename))
     return "./tempFolderName/{}".format(filename)
@@ -97,6 +98,13 @@ def extractFiles(extractFile):
     os.mkdir("./tempFolderName")
     with ZipFile(extractFile) as zObject:
         zObject.extractall("./tempFolderName")
+    
+    fileList = os.listdir("./tempFolderName")
+    numFiles = len(fileList)
+    word = "are" if numFiles > 1 else "is"
+    plural = "s" if word == "are" else ""
+
+    print("\nThere {} {} file{} in the folder: {}".format(word, numFiles, plural, fileList))
     
 # based on address and image metadata, assembles a suitable name for the
 # folder of extracted images
