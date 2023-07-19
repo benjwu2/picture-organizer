@@ -2,6 +2,7 @@ from zipfile import ZipFile
 from addressArray import array
 from PIL import Image
 from PIL.ExifTags import TAGS
+from monthDictionary import monthDictionary
 import os
 import sys
 
@@ -52,6 +53,19 @@ def returnDateTime(imagePath):
     img = Image.open(imagePath)
     print(img.getexif()[306])
     rawDate = img.getexif()[306]
+
+    # "rawDate.split(":")[1]" outputs the month part of the raw date (e.g. the 07 from 2023:07:13 14:37:25)
+    # monthDictionary has these two digit codes as keys to values which are the month names that correspond to these codes
+    # e.g. {"02": February}
+    Month = monthDictionary[rawDate.split(":")[1]]
+    # there has to be a better way to do this
+    Day = rawDate.split(" ")[0].split(":")[2]
+    Year = rawDate.split(" ")[0].split(":")[0]
+
+    processedDate = "{} {}, {}".format(Month, Day, Year)
+
+    print(processedDate)
+    return processedDate
 
 
 imageAddress = input("input image file path: ")[1:-1]
