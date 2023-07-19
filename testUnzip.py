@@ -124,7 +124,7 @@ def renameFolder():
 # lists non-jpg file types and files if there are any
 # If all files are non-jpg files, then the program exits
 # NOTES - checkFileTypes only works on unzipped files
-def checkFileTypes(checkFile = config["default"]):
+def checkFileTypes(checkFile = config["defaultDest"]):
     badFiles = []
     badFileTypes = []
 
