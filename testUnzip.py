@@ -115,8 +115,8 @@ def getFirstImagePath(folder):
     print("\n[FILEPATH FOR IMAGE USED TO EXTRACT DATE]")
     print("Image file: " + fileList[0])
 
-    print("Image filepath: {}{}".format(folder,filename))
-    return "{}{}".format(folder,filename)
+    print("Image filepath: {}/{}".format(folder,filename))
+    return "{}/{}".format(folder,filename)
 
 # Extracts the files from "extractFile" into a newly made folder
 # NB: this method must be called before getFirstImagePath in the code, as it creates
@@ -150,7 +150,7 @@ def returnFolderName():
     extractFiles(input("\n\n\ninput image zip folder file path: ")[1:-1], config["defaultDest"])
 
     streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
-    date = extractDateTime(getFirstImagePath())
+    date = extractDateTime(getFirstImagePath(config["defaultDest"]))
 
     print("\n\n\n[FOLDER NAME]")
     print("Street address used: "+ streetAddress)
