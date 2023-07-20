@@ -169,6 +169,14 @@ def renameFolder():
     newFolderName = returnFolderName()
     os.rename("./tempFolderName", newFolderName)
 
+# accepts a file path and returns True if the file is of the type fileType (no ".", e.g. jpg),
+# False if not
+def checkFile(file, fileType):
+    if file.split(".")[1] == fileType:
+        return True
+    else:
+        return False
+
 # accepts a folder and checks the files for whether they are the inputted
 # filetype or not
 # lists non-inputted file types and files if there are any
