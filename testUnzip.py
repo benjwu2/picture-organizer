@@ -106,17 +106,17 @@ def extractDateTime(filepath):
     return processedDate
 
 # returns the file path for the first image in the folder whose file path
-# is passed as an argument
-def getFirstImagePath():
-    fileList = os.listdir("./tempFolderName")
+# is passed as an argument in folder
+def getFirstImagePath(folder):
+    fileList = os.listdir(folder)
 
     filename = fileList[0]
 
     print("\n[FILEPATH FOR IMAGE USED TO EXTRACT DATE]")
     print("Image file: " + fileList[0])
 
-    print("Image filepath: ./tempFolderName/{}".format(filename))
-    return "./tempFolderName/{}".format(filename)
+    print("Image filepath: {}{}".format(folder,filename))
+    return "{}{}".format(folder,filename)
 
 # Extracts the files from "extractFile" into a newly made folder
 # NB: this method must be called before getFirstImagePath in the code, as it creates
