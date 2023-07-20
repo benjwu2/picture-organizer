@@ -182,14 +182,14 @@ def checkFile(file, fileType):
 # lists non-inputted file types and files if there are any
 # If all files are non-inputted files, then the program exits
 # NOTES - checkFileTypes only works on unzipped files
-def checkFileTypes(fileType, checkFile):
+def checkFileTypes(fileType, checkFolder):
     badFiles = []
     badFileTypes = []
 
     print("\nChecking for file types besides {}...".format(fileType))
 
     # iterates through array of file names checking if they are jpg files
-    for file in os.listdir(checkFile):
+    for file in os.listdir(checkFolder):
         # isolate the file extension, as the split after the last period should be it
         if file.split(".")[-1] != fileType:
             badFiles.append(file)
@@ -198,7 +198,7 @@ def checkFileTypes(fileType, checkFile):
     
 
     # Response based on number of bad files
-    if len(badFiles) == len(os.listdir(checkFile)):
+    if len(badFiles) == len(os.listdir(checkFolder)):
         sys.exit("There are only files of the type {} in the folder, cancelling".format(badFileTypes))
 
     if len(badFiles) > 0:
