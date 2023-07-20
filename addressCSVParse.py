@@ -1,8 +1,11 @@
 fileAddress = input("enter the file path for the CSV file to be parsed (with quotes): ")[1:-1]
 
+
+
+
 # Takes the CSV file whose file path is inputted and converts
 # it into an array written out in a newly created Python file
-with open("addressArray.py", 'w') as AA:
+with open("addressArray.py", 'a') as AA:
     AA.write("array = ")
     with open(fileAddress) as file:
 
@@ -14,4 +17,4 @@ with open("addressArray.py", 'w') as AA:
         addressArray = contents.split("\n")
 
         # writes this array into the addressArray.py file
-        AA.write("{}".format(addressArray))
+        AA.write("{}\n".format(addressArray))
