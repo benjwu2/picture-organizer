@@ -118,15 +118,18 @@ def getFirstImagePath():
     print("Image filepath: ./tempFolderName/{}".format(filename))
     return "./tempFolderName/{}".format(filename)
 
-# extracts the files from "extractFile" into a newly made folder
+# Extracts the files from "extractFile" into a newly made folder
 # NB: this method must be called before getFirstImagePath in the code, as it creates
-# the folder in the working directory whose path is used in getFirstImagePath
-def extractFiles(extractFile):
-    os.mkdir("./tempFolderName")
+# the folder in the working directory whose path is used in getFirstImagePath.
+# extractFile and destFile are strings containing file paths
+def extractFiles(extractFile, destFile):
+
+    # make a folder at destFile and extract files from folder at extractFile to destFile
+    os.mkdir(destFile)
     with ZipFile(extractFile) as zObject:
-        zObject.extractall("./tempFolderName")
+        zObject.extractall(destFile)
     
-    fileList = os.listdir("./tempFolderName")
+    fileList = os.listdir(destFile)
     numFiles = len(fileList)
     word = "are" if numFiles > 1 else "is"
     plural = "s" if word == "are" else ""
