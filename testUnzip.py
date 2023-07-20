@@ -65,6 +65,11 @@ def returnFullAddress(streetNumber):
         print("\nYou selected {}".format(address))
         return(matches[selector-1])
 
+# takes an inputted array and appends ascending numbers
+# to the start of the element i.e 1 to the first element, 2 to the second, etc.
+def appendNumberLabel(array):
+    for element, index in enumerate(array):
+        element = "({}) + element".format(index+1)
 
 # returns a writen date based on the metadata of the image file whose path is passed as an argument
 def extractDateTime(filepath):
