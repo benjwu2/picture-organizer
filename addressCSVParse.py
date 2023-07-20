@@ -1,5 +1,7 @@
 fileAddress = input("enter the file path for the CSV file to be parsed (with quotes): ")[1:-1]
 
+# return the number of times an array that has a name starting
+# with "array" is used in addressArray.py
 def getArrayNum():
     with open("addressArray.py") as file:
         contents = file.read()
