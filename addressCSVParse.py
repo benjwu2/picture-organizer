@@ -12,14 +12,18 @@ def getArrayNum():
         return len(contents.split("array")) - 1
 
 
-
+# generate a name for the new array based on how many arrays there
+# are already in adressArray.py
+def getArrayName():    
+    if input("Name for new array? (press Enter to skip): ") == "":
+        return "array{}".format(getArrayNum())
 
 
 
 # Takes the CSV file whose file path is inputted and converts
 # it into an array written out in a newly created Python file
 with open("addressArray.py", 'a') as AA:
-    AA.write("array = ")
+    AA.write("{} = ".format(getArrayName()))
     with open(fileAddress) as file:
 
         # convert the file contents into a string
