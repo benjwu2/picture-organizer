@@ -1,7 +1,8 @@
 from configDictionary import config
 from zipfile import ZipFile
 import importlib
-array = importlib.import_module(config["arrayModuleName"]).array
+import addressArray
+array = getattr(addressArray, config["arrayToUse"])
 from PIL import Image
 from PIL.ExifTags import TAGS
 from monthDictionary import monthDictionary
