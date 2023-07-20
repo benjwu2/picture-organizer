@@ -17,9 +17,12 @@ def getArrayNum():
 # returns the name inputted by the user or a default one
 # based on how many arrays with a name starting with "array" there area in adressArray.py
 # The default name is generated if the user skips the naming by pressing enter
-def getArrayName():    
-    if input("Name for new array? (press Enter to skip): ") == "":
+def getArrayName():
+    userInput = input("Name for new array? (press Enter to skip): ")
+    if userInput == "":
         return "array{}".format(getArrayNum())
+    else:
+        return userInput
 
 
 
