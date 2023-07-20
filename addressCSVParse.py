@@ -1,6 +1,6 @@
 fileAddress = input("enter the file path for the CSV file to be parsed (with quotes): ")[1:-1]
 
-# return the number of times an array that has a name starting
+# return one plus the number of times an array that has a name starting
 # with "array" is used in addressArray.py
 def getArrayNum():
     with open("addressArray.py") as file:
@@ -11,11 +11,12 @@ def getArrayNum():
         
         # the number of times "array" appears in the file is equal to the number
         # of elements in the array made of the string split on "array," minus 1
-        return len(contents.split("array")) - 1
+        return len(contents.split("array"))
 
 
-# generate a name for the new array based on how many arrays there
-# are already in adressArray.py
+# returns the name inputted by the user or a default one
+# based on how many arrays with a name starting with "array" there area in adressArray.py
+# The default name is generated if the user skips the naming by pressing enter
 def getArrayName():    
     if input("Name for new array? (press Enter to skip): ") == "":
         return "array{}".format(getArrayNum())
