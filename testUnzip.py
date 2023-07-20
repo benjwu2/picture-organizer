@@ -121,12 +121,12 @@ def getFirstImagePath():
 # Extracts the files from "extractFile" into a newly made folder
 # NB: this method must be called before getFirstImagePath in the code, as it creates
 # the folder in the working directory whose path is used in getFirstImagePath.
-# extractFile and destFile are strings containing file paths
-def extractFiles(extractFile, destFile):
+# extractTarget and destFile are strings containing file paths
+def extractFiles(extractTarget, destFile):
 
     # make a folder at destFile and extract files from folder at extractFile to destFile
     os.mkdir(destFile)
-    with ZipFile(extractFile) as zObject:
+    with ZipFile(extractTarget) as zObject:
         zObject.extractall(destFile)
     
     fileList = os.listdir(destFile)
