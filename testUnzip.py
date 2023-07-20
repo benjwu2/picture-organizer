@@ -77,7 +77,6 @@ def copyArray(array):
 # to the start of the element i.e 1 to the first element, 2 to the second, etc.
 def appendNumberLabel(array):
     for index, element in enumerate(array):
-        print(index)
         array[index] = "({}) {}".format(index+1, element)
     return array
 
