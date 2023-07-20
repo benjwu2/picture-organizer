@@ -147,7 +147,7 @@ def extractFiles(extractTarget, destFile):
 # the date used is from the metadata of the first image in the folder
 # the address is selected by the user inputting the street number of the desired address
 def returnFolderName():
-    extractFiles(input("\n\n\ninput image zip folder file path: ")[1:-1])
+    extractFiles(input("\n\n\ninput image zip folder file path: ")[1:-1], config["defaultDest"])
 
     streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
     date = extractDateTime(getFirstImagePath())
