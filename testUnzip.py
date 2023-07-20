@@ -136,7 +136,7 @@ def extractFiles(extractFile):
 
     print("\n[FOLDER INFORMATION]")
     print("There {} {} file{} in the folder: {}".format(word, numFiles, plural, fileList))
-    checkFileTypes()
+    checkFileTypes(config["preferredFileType"], config["defaultDest"])
 
     
 # based on address and image metadata, assembles a suitable name for the
@@ -166,18 +166,19 @@ def renameFolder():
     newFolderName = returnFolderName()
     os.rename("./tempFolderName", newFolderName)
 
-# accepts a folder and checks the files for whether they are jpgs or not
-# lists non-jpg file types and files if there are any
-# If all files are non-jpg files, then the program exits
+# accepts a folder and checks the files for whether they are the inputted
+# filetype or not
+# lists non-inputted file types and files if there are any
+# If all files are non-inputted files, then the program exits
 # NOTES - checkFileTypes only works on unzipped files
-def checkFileTypes(checkFile = config["defaultDest"]):
+def checkFileTypes(fileType, checkFile):
     badFiles = []
     badFileTypes = []
 
     # iterates through array of file names checking if they are jpg files
     for file in os.listdir(checkFile):
         # isolate the file extension, as the split after the last period should be it
-        if file.split(".")[-1] != "jpg":
+        if file.split(".")[-1] != fileType:
             badFiles.append(file)
             if not file.split(".")[-1] in badFileTypes:
                 badFileTypes.append(file.split(".")[-1])
@@ -196,7 +197,7 @@ def checkFileTypes(checkFile = config["defaultDest"]):
         wordFiles = "is" if len(badFiles) == 1 else "are"
         numberFiles = len(badFiles)
         pluralFiles = "" if len(badFiles) == 1 else "s"
-        print("WARNING - There {} {} file type{} in the folder besides jpg:\n File types: {}\nThere {} {} file{} with bad file types: {}".format(wordFileTypes, numberFileTypes, pluralFileTypes, badFileTypes, wordFiles, numberFiles, pluralFiles, badFiles))
+        print("WARNING - There {} {} file type{} in the folder besides {}:\n File types: {}\nThere {} {} file{} with bad file types: {}".format(wordFileTypes, numberFileTypes, pluralFileTypes, fileType, badFileTypes, wordFiles, numberFiles, pluralFiles, badFiles))
         
         # option to quit program if there are bad file types
         userInput = input("\nContinue? Enter Y or N: ")
@@ -210,7 +211,7 @@ def checkFileTypes(checkFile = config["defaultDest"]):
                 continue
 
     else:
-        print("All files are jpgs as expected :)")
+        print("All files are {}s as expected :)".format(fileType))
 
 
 renameFolder()
