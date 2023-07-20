@@ -43,8 +43,8 @@ def returnFullAddress(streetNumber):
         print("Corresponding full address: {}".format(matches[0]))
         return matches[0]
     else:
-        newMatches = matches.view
-        print("\nThere are multiple addresses with this street number: {}".format(matches))
+        labeledMatches = appendNumberLabel(copyArray(matches))
+        print("\nThere are multiple addresses with this street number: {}".format(labeledMatches))
         selector = None
 
         # making sure the number inputted by the user corresponds to one of the matching addresses i.e. 1 for the first match
@@ -76,8 +76,10 @@ def copyArray(array):
 # takes an inputted array and appends ascending numbers
 # to the start of the element i.e 1 to the first element, 2 to the second, etc.
 def appendNumberLabel(array):
-    for element, index in enumerate(array):
-        element = "({}) + element".format(index+1)
+    for index, element in enumerate(array):
+        print(index)
+        array[index] = "({}) {}".format(index+1, element)
+    return array
 
 # returns a writen date based on the metadata of the image file whose path is passed as an argument
 def extractDateTime(filepath):
@@ -211,9 +213,12 @@ def checkFileTypes(checkFile = config["defaultDest"]):
     else:
         print("All files are jpgs as expected :)")
 
-renameFolder()
 
+# renameFolder()
 
+testArray = ["cow", "moo", "pig"]
+appendNumberLabel(testArray)
+print(testArray)
 # getImageInfo(r"C:\Users\benjw\Downloads\Photos-001 (1).zip")
 
 # right click the zip file to be unzipped and select "Copy as path"
