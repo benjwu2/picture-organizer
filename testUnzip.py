@@ -43,6 +43,7 @@ def returnFullAddress(streetNumber):
         print("Corresponding full address: {}".format(matches[0]))
         return matches[0]
     else:
+        newMatches = matches.view
         print("\nThere are multiple addresses with this street number: {}".format(matches))
         selector = None
 
@@ -64,6 +65,13 @@ def returnFullAddress(streetNumber):
 
         print("\nYou selected {}".format(address))
         return(matches[selector-1])
+
+# returns a copy of the inputted array
+def copyArray(array):
+    newArray = []
+    for element in array:
+        newArray.append(element)
+    return newArray
 
 # takes an inputted array and appends ascending numbers
 # to the start of the element i.e 1 to the first element, 2 to the second, etc.
