@@ -175,6 +175,8 @@ def checkFileTypes(fileType, checkFile):
     badFiles = []
     badFileTypes = []
 
+    print("\nChecking for file types besides {}...".format(fileType))
+
     # iterates through array of file names checking if they are jpg files
     for file in os.listdir(checkFile):
         # isolate the file extension, as the split after the last period should be it
