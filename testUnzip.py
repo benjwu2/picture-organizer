@@ -213,11 +213,9 @@ def checkFileTypes(checkFile = config["defaultDest"]):
         print("All files are jpgs as expected :)")
 
 
-# renameFolder()
+renameFolder()
 
-testArray = ["cow", "moo", "pig"]
-appendNumberLabel(testArray)
-print(testArray)
+
 # getImageInfo(r"C:\Users\benjw\Downloads\Photos-001 (1).zip")
 
 # right click the zip file to be unzipped and select "Copy as path"
