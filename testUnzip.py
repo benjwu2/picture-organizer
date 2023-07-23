@@ -3,6 +3,7 @@ from zipfile import ZipFile
 import importlib
 import addressArray
 array = getattr(addressArray, config["arrayToUse"])
+purposeArray = getattr(addressArray, purposeArray)
 from PIL import Image
 from PIL.ExifTags import TAGS
 from monthDictionary import monthDictionary
@@ -141,8 +142,12 @@ def extractFiles(extractTarget, destFile):
     print("There {} {} file{} in the folder: {}".format(word, numFiles, plural, fileList))
     checkFileTypes(config["preferredFileType"], config["defaultDest"])
 
-    
+# returns the element of purposeArray that the user selected
+def returnPurpose():
+    labeledArray = appendNumberLabel(copyArray(purposeArray))
+    selection = input("Enter the number corresponding to the purpose of the work order: {}".format(labeledArray))
 
+    return purposeArray[selection - 1]
 
 # take a folder whose file path is inputted and rename it according to inputs from the
 # user and the date information extracted from the images inside
@@ -150,6 +155,7 @@ def returnFolderName(folder):
 
     date = extractDateTime(getFirstImagePath(folder))
     streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
+    purpose = returnPurpose()
 
     print("\n\n\n[FOLDER NAME]")
     print("Date: " + date)
@@ -227,7 +233,7 @@ def checkFileTypes(fileType, checkFolder):
         print("All files are {}s as expected :)".format(fileType))
 
 
-renameFolder(input("Input the file path for the folder to be renamed (with quotes): "))
+renameFolder(input("Input the file path for the folder to be renamed (with quotes): ")[1:-1])
 
 
 # getImageInfo(r"C:\Users\benjw\Downloads\Photos-001 (1).zip")
