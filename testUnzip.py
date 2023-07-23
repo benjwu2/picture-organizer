@@ -142,21 +142,21 @@ def extractFiles(extractTarget, destFile):
     checkFileTypes(config["preferredFileType"], config["defaultDest"])
 
     
-# based on address and image metadata, assembles a suitable name for the
-# folder of extracted images
-# the date used is from the metadata of the first image in the folder
-# the address is selected by the user inputting the street number of the desired address
-def returnFolderName():
-    extractFiles(input("\n\n\ninput image zip folder file path: ")[1:-1], config["defaultDest"])
 
-    streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
-    date = extractDateTime(getFirstImagePath(config["defaultDest"]))
+
+# take a folder whose file path is inputted and rename it according to inputs from the
+# user and the date information extracted from the images inside
+def returnFolderName(folder):
+
+    date = extractDateTime(getFirstImagePath(folder))
+    streetAddress = returnFullAddress(input("\n\n\nEnter the street number: ")
 
     print("\n\n\n[FOLDER NAME]")
-    print("Street address used: "+ streetAddress)
     print("Date: " + date)
+    print("Street address used: "+ streetAddress)
     
-    folderName = "{} - {}".format(streetAddress, date)
+    
+    folderName = "{} {}".format(date, streetAddress)
     finalPrint = folderName
 
     print("\n" + "="*(len(finalPrint)))
