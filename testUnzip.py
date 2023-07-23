@@ -159,10 +159,11 @@ def returnFolderName(folder):
 
     print("\n\n\n[FOLDER NAME]")
     print("Date: " + date)
-    print("Street address used: "+ streetAddress)
+    print("Street address used: " + streetAddress)
+    print("Purpose: " + purpose)
     
     
-    folderName = "{} {}".format(date, streetAddress)
+    folderName = "{} {} {}".format(date, streetAddress, purpose)
     finalPrint = folderName
 
     print("\n" + "="*(len(finalPrint)))
