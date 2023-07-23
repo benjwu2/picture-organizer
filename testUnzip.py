@@ -149,7 +149,7 @@ def extractFiles(extractTarget, destFile):
 def returnFolderName(folder):
 
     date = extractDateTime(getFirstImagePath(folder))
-    streetAddress = returnFullAddress(input("\n\n\nEnter the street number: ")
+    streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
 
     print("\n\n\n[FOLDER NAME]")
     print("Date: " + date)
