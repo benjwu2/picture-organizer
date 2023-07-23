@@ -227,7 +227,7 @@ def checkFileTypes(fileType, checkFolder):
         print("All files are {}s as expected :)".format(fileType))
 
 
-renameFolder()
+renameFolder(input("Input the file path for the folder to be renamed (with quotes): "))
 
 
 # getImageInfo(r"C:\Users\benjw\Downloads\Photos-001 (1).zip")
