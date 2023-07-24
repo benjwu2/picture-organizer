@@ -4,6 +4,8 @@ import importlib
 import infoArrays
 array = getattr(infoArrays, config["arrayToUse"])
 purposeArray = getattr(infoArrays, "purposeArray")
+personArray = getattr(infoArrays, "personArray")
+
 from PIL import Image
 from PIL.ExifTags import TAGS
 from monthDictionary import monthDictionary
@@ -148,6 +150,7 @@ def returnPurpose():
     selection = input("Enter the number corresponding to the purpose of the work order {}: ".format(labeledArray))
 
     return purposeArray[int(selection) - 1]
+
 
 # take a folder whose file path is inputted and rename it according to inputs from the
 # user and the date information extracted from the images inside
