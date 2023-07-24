@@ -155,7 +155,15 @@ def returnPerson():
     labeledArray = appendNumberLabel(copyArray(personArray))
     selection = input("Enter the number corresponding to the person completing the work order {}: ".format(labeledArray))
 
-    return purposeArray[int(selection) - 1]
+    return personArray[int(selection) - 1]
+
+# takes an inputted array as an argument and prints
+# the elements on separate lines prepended by numbers
+def printLabeledArray(array):
+    numberedTuple = enumerate(array)
+
+    for index, value in numberedTuple:
+        print("({}) {}".format(index, value))
 
 # take a folder whose file path is inputted and rename it according to inputs from the
 # user and the date information extracted from the images inside
