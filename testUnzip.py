@@ -164,14 +164,16 @@ def returnFolderName(folder):
     date = extractDateTime(getFirstImagePath(folder))
     streetAddress = returnFullAddress(input("\n\n\nEnter the street number: "))
     purpose = returnPurpose()
+    person = returnPerson()
 
     print("\n\n\n[FOLDER NAME]")
     print("Date: " + date)
     print("Street address used: " + streetAddress)
     print("Purpose: " + purpose)
+    print("Person: " + person)
     
     
-    folderName = "{} {} {}".format(date, streetAddress, purpose)
+    folderName = "{} {} {} - {}".format(date, streetAddress, purpose, person)
     finalPrint = folderName
 
     print("\n" + "="*(len(finalPrint)))
