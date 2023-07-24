@@ -3,7 +3,7 @@ from zipfile import ZipFile
 import importlib
 import addressArray
 array = getattr(addressArray, config["arrayToUse"])
-purposeArray = getattr(addressArray, purposeArray)
+purposeArray = getattr(addressArray, "purposeArray")
 from PIL import Image
 from PIL.ExifTags import TAGS
 from monthDictionary import monthDictionary
@@ -145,9 +145,9 @@ def extractFiles(extractTarget, destFile):
 # returns the element of purposeArray that the user selected
 def returnPurpose():
     labeledArray = appendNumberLabel(copyArray(purposeArray))
-    selection = input("Enter the number corresponding to the purpose of the work order: {}".format(labeledArray))
+    selection = input("Enter the number corresponding to the purpose of the work order {}: ".format(labeledArray))
 
-    return purposeArray[selection - 1]
+    return purposeArray[int(selection) - 1]
 
 # take a folder whose file path is inputted and rename it according to inputs from the
 # user and the date information extracted from the images inside
