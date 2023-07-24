@@ -151,6 +151,11 @@ def returnPurpose():
 
     return purposeArray[int(selection) - 1]
 
+def returnPerson():
+    labeledArray = appendNumberLabel(copyArray(personArray))
+    selection = input("Enter the number corresponding to the person completing the work order {}: ".format(labeledArray))
+
+    return purposeArray[int(selection) - 1]
 
 # take a folder whose file path is inputted and rename it according to inputs from the
 # user and the date information extracted from the images inside
