@@ -163,7 +163,7 @@ def printLabeledArray(array):
     numberedTuple = enumerate(array)
 
     for index, value in numberedTuple:
-        print("({}) {}".format(index, value))
+        print("({}) {}".format(index + 1, value))
 
 # take a folder whose file path is inputted and rename it according to inputs from the
 # user and the date information extracted from the images inside
