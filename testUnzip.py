@@ -1,9 +1,9 @@
 from configDictionary import config
 from zipfile import ZipFile
 import importlib
-import addressArray
-array = getattr(addressArray, config["arrayToUse"])
-purposeArray = getattr(addressArray, "purposeArray")
+import infoArrays
+array = getattr(infoArrays, config["arrayToUse"])
+purposeArray = getattr(infoArrays, "purposeArray")
 from PIL import Image
 from PIL.ExifTags import TAGS
 from monthDictionary import monthDictionary
@@ -96,12 +96,12 @@ def extractDateTime(filepath):
     # "rawDate.split(":")[1]" outputs the month part of the raw date (e.g. the 07 from 2023:07:13 14:37:25)
     # monthDictionary has these two digit codes as keys to values which are the month names that correspond to these codes
     # e.g. {"02": February}
-    Month = monthDictionary[rawDate.split(":")[1]]
+    Month = rawDate.split(":")[1]
     # there has to be a better way to do this
     Day = rawDate.split(" ")[0].split(":")[2]
     Year = rawDate.split(" ")[0].split(":")[0]
 
-    processedDate = "{} {}, {}".format(Month, Day, Year)
+    processedDate = "{}.{}.{}".format(Month, Day, Year)
 
     print("Processed date: " + processedDate)
     return processedDate
