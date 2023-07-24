@@ -152,8 +152,8 @@ def returnPurpose():
     return purposeArray[int(selection) - 1]
 
 def returnPerson():
-    labeledArray = appendNumberLabel(copyArray(personArray))
-    selection = input("Enter the number corresponding to the person completing the work order {}: ".format(labeledArray))
+    printLabeledArray(personArray)
+    selection = input("Enter the number corresponding to the person completing the work order: ")
 
     return personArray[int(selection) - 1]
 
